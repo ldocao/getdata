@@ -4,7 +4,7 @@ This is a detailed description of the transformation applied to the dataset
 
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-in order to generate docao.txt. The script (run_analysis.R) is divided into 6 parts: the first part defines the filenames, while the others follow the same steps than in the questions, ie step 1 is the answer to question 1 and so on.
+in order to generate docao.txt. The script (run_analysis.R) is divided into 6 parts: the first part defines the filenames, while the others follow the same steps than in the questions, ie step 1 is the answer to question 1 and so on. All units are the same than defined in the original raw data.
 
 ## DEFINE FILES
 This is a preliminary section to define the filenames and the directories. The script assumes that the downloaded files are all placed with their original name into the "your_working_directory/UCI_HAR_Dataset/" directory.
@@ -31,5 +31,5 @@ Add activity and volunteer number to dataframe1 : this is the final dataframe
 We compute the mean of each feature for each combination of (activity, volunteer). For example, if there is 2 activities and 3 volunteers, the final number of rows are 2*3=6.
 
 ## OUTPUT
-We finally dump the file containing the processed dataframe.
+We finally dump the file containing the processed dataframe. The final output contains 180 rows and 68 columns. Each row corresponds to the average of each variable for each activity and each subject, in same units than the raw data.
 
