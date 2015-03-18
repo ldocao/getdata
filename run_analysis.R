@@ -1,7 +1,9 @@
 ###NAME: course_project.R
 ###PURPOSE: course project for Get and Clean data on coursera.org
 
+library(dplyr)
 library(plyr)
+
 
 ### DEFINE FILES
 output_name="docao.txt"
@@ -50,7 +52,7 @@ df3 <- rbind(train_df3,test_df3)
 features <- read.table(features_file,col.names=c("id","feature.name"))
 subset <- grep("std\\(\\)|mean\\(\\)",features$feature.name,perl=TRUE) #select column containing mean() or std()
 df1 <- df1[,subset]
-
+print(dim(df1))
 
 
 ### STEP3
@@ -68,5 +70,5 @@ newdf <- df %>% group_by(activity,volunteer) %>% summarise_each(funs(mean))
 
 
 ### OUTPUT
-write.table(df,output_name,row.name=FALSE)
+write.table(newdf,output_name,row.name=FALSE)
 
